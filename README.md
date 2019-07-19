@@ -22,3 +22,10 @@ separator = InformedSeparatorWithAttention(mix_features=513,
                                            target_decoding_features=513,
                                            target_decoder_layers=2)
 </pre>
+
+### Acknowledgment
+This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowsa-Curie grant agreement No. 765068.
+
+### Copyright notice
+Copyright 2019 Kilian Schulze-Forster of Télécom Paris, Institut Polytechnique de Paris.
+All rights reserved.
