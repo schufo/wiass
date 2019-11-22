@@ -1,15 +1,16 @@
 import numpy as np
 
 
-def eval_silent_frames(true_source, predicted_source, window_size: int, hop_size: int, eval_last_frame=False,
+def eval_silent_frames(true_source, predicted_source, window_size: int, hop_size: int, eval_incomplete_last_frame=False,
                        eps_for_silent_target=True):
     """
     :param true_source: true source signal in the time domain, numpy array with shape (T,)
     :param predicted_source: predicted source signal in the time domain, numpy array with shape (T,)
     :param window_size: length (in samples) of the window used for the framewise bss_eval metrics computation
     :param hop_size: hop size (in samples) used for the framewise bss_eval metrics computation
-    :param eval_last_frame: if True, takes last frame into account even if it is shorter than the window, default: False
-    :param eps_for_silent_target: if True, returns a value also if target source is silent, set to False for exact
+    :param eval_incomplete_last_frame: if True, takes last frame into account even if it is shorter than the window,
+    default: False
+    :param eps_for_silent_target: if True, returns a value also if target source is silent, set to False for exact same
     behaviour as explained in the paper "Weakly Informed Audio Source Separation", default: True
     :return: pes: numpy array containing PES values for all applicable frames
              eps: numpy array containing EPS values for all applicable frames
@@ -41,7 +42,7 @@ def eval_silent_frames(true_source, predicted_source, window_size: int, hop_size
 
         # evaluate last frame if applicable
         if n == number_eval_frames - 1 and last_frame_incomplete:
-            if eval_last_frame:
+            if eval_incomplete_last_frame:
                 prediction_window = predicted_source[n * hop_size:]
                 true_window = true_source[n * hop_size:]
             else:

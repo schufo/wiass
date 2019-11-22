@@ -77,7 +77,7 @@ class TestEvalSilentFrames(unittest.TestCase):
 
         pes, eps, silent_true_source_frames, silent_prediction_frames = eval_silent_frames(true, predicted, window_size,
                                                                                            hop_size,
-                                                                                           eval_last_frame=False,
+                                                                                           eval_incomplete_last_frame=False,
                                                                                            eps_for_silent_target=False)
         pes_expected = np.array([10 * np.log10(10 * (-3)**2 + 10**(-12)), 10 * np.log10(10 * (-3)**2 + 10**(-12))])
 
@@ -96,7 +96,7 @@ class TestEvalSilentFrames(unittest.TestCase):
 
         pes, eps, silent_true_source_frames, silent_prediction_frames = eval_silent_frames(true, predicted, window_size,
                                                                                            hop_size,
-                                                                                           eval_last_frame=False,
+                                                                                           eval_incomplete_last_frame=False,
                                                                                            eps_for_silent_target=False)
         eps_expected = np.array(
             [10 * np.log10(10 * 2 ** 2 + 10 ** (-12)), 10 * np.log10(10 * 2 ** 2 + 10 ** (-12))])
@@ -152,7 +152,7 @@ class TestEvalSilentFrames(unittest.TestCase):
 
         pes, eps, silent_true_source_frames, silent_prediction_frames = eval_silent_frames(true, predicted, window_size,
                                                                                            hop_size,
-                                                                                           eval_last_frame=True,
+                                                                                           eval_incomplete_last_frame=True,
                                                                                            eps_for_silent_target=False)
 
         eps_expected = np.array([10 * np.log10(10 * 2**2 + 10**(-12)), 10 * np.log10(3 * 2**2 + 10**(-12))])
