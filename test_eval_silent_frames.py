@@ -151,8 +151,7 @@ class TestEvalSilentFrames(unittest.TestCase):
 
         pes, eps, silent_true_source_frames, silent_prediction_frames = eval_silent_frames(true, predicted, window_size,
                                                                                            hop_size, False, False)
-        pes_expected = 10 * np.log10(10 * 4 + 10 ** (-12)) + 10 * np.log10(5 * 4 + 10 ** (-12))
-        eps_expected = 10 * np.log10(10 * 4 + 10 ** (-12)) + 10 * np.log10(5 * 4 + 10 ** (-12))
+
         silent_true_source_frames_expected = [2, 9]
         silent_prediction_frames_expected = [10, 14]
 
