@@ -53,7 +53,7 @@ pes, eps, silent_true_source_frames, silent_prediction_frames = eval_silent_fram
 `silent_prediction_frames` is a list of indices (counting from 0) of evaluation frames with silent a prediction. The EPS is calculated on these frames.
 
 
-*For numerical reasons, we add 10^{-12} to the energy of all frames. Consequently, -120 dB is returned for frames with zero energy*
+*For numerical reasons, we add $10^{-12}$ to the energy of all frames. Consequently, -120 dB is returned for frames with zero energy.*
 
 
 ## Source Separation Model
